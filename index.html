@@ -65,6 +65,8 @@ h2{margin:0;font-weight:400;font-size:40px;line-height:1.1;letter-spacing:-0.01e
 .method h2{font-size:32px;margin-bottom:14px}
 .method p{margin:0;font-size:16px;line-height:1.6;color:var(--muted)}
 footer{border-top:1px solid var(--rule);margin-top:auto}
+footer .credit{text-align:right;display:flex;flex-direction:column;gap:4px;margin-left:auto}
+footer .credit div:first-child{color:var(--fg)}
 footer .wrap{padding-top:24px;padding-bottom:24px;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:space-between}
 @media (max-width:900px){
  .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
@@ -79,6 +81,7 @@ footer .wrap{padding-top:24px;padding-bottom:24px;font-size:13px;color:var(--mut
  .row{padding:18px 0}
  .tagline{font-size:30px}.lede{font-size:19px}h2{font-size:32px}
  nav{margin-left:0}
+ footer .credit{text-align:left;margin-left:0}
 }
 </style>
 </head>
@@ -151,7 +154,7 @@ footer .wrap{padding-top:24px;padding-bottom:24px;font-size:13px;color:var(--mut
 </main>
 
 <footer>
-  <div class="wrap pad"><div>Be Right Back. Updated 24 Nov 2026.</div><div>Independent project. Not affiliated with any person or organisation listed.</div></div>
+  <div class="wrap pad"><div>Be Right Back. Updated 24 Nov 2026.</div><div class="credit"><div>Idea and site by 広中依緒璃 (Hironaka Iori)</div><div>Independent project. Not affiliated with any person or organisation listed.</div></div></div>
 </footer>
 
 <script>
