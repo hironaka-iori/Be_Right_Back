@@ -1,245 +1,29 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en-GB" data-theme="dark">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Be Right Back</title>
-<meta name="description" content="A ranking of how fast leaders of well-known companies and governments regained the office they lost.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-<style>
-:root{--fg:#fff;--bg:#000;--muted:#a3a3a3;--rule:#2e2e2e;--panel:#16110a;--accent:#d9923f;--hover:#0d0d0d;--bar2:#6b6b6b}
-:root[data-theme="light"]{--fg:#000;--bg:#fff;--muted:#525252;--rule:#d4d4d4;--panel:#f7f1e8;--accent:#b45309;--hover:#f5f5f5;--bar2:#9a9a9a}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',system-ui,sans-serif}
-a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:pointer}
-button:focus-visible,a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
-.serif{font-family:'Newsreader',Georgia,serif}
-.pad{padding-left:32px;padding-right:32px}
-.wrap{max-width:1200px;width:100%;margin:0 auto}
-header.wrap{padding-top:20px;padding-bottom:20px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 40px}
-.logo{font-style:italic;font-size:26px;letter-spacing:-0.01em}
-nav{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;font-size:16px;font-weight:500;margin-left:auto}
-nav a{color:var(--muted);padding:12px 14px}
-nav a.cur{color:var(--fg);font-weight:600}
-.theme{margin-left:8px;min-height:44px;padding:0 16px;border:1px solid var(--rule);background:transparent;color:var(--fg);border-radius:999px;font-size:14px;font-weight:500}
-main{display:flex;flex-direction:column}
-.hero{padding:72px 0 56px;display:flex;flex-direction:column;gap:56px}
-h1{margin:0;font-style:italic;font-weight:400;font-size:clamp(48px,14vw,196px);line-height:.92;letter-spacing:-0.035em}
-.cols{display:flex;flex-wrap:wrap;gap:32px 64px;align-items:flex-start}
-.tagline{margin:0;flex:1 1 300px;font-size:40px;line-height:1.12;letter-spacing:-0.01em}
-.lede{margin:0;flex:1 1 300px;font-size:22px;line-height:1.55;color:var(--muted)}
-.eyebrow{font-size:13px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
-.sect{padding:24px 0 72px;display:flex;flex-direction:column;gap:20px}
-.notice{border-left:3px solid var(--accent);background:var(--panel);padding:14px 18px;font-size:16px;line-height:1.5}
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px;margin-top:12px}
-.stat{border-top:1px solid var(--fg);padding-top:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
-.stat .k{font-size:16px}
-.stat .v{font-size:76px;line-height:1;letter-spacing:-0.03em}
-.stat .v.name{font-size:44px;line-height:1.05;letter-spacing:-0.02em}
-.stat .s{font-size:15px;line-height:1.45;color:var(--muted)}
-.rank-top{border-top:1px solid var(--rule);padding-top:28px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px}
-h2{margin:0;font-weight:400;font-size:40px;line-height:1.1;letter-spacing:-0.01em}
-.sub{font-size:16px;line-height:1.5;color:var(--muted);margin-top:10px;max-width:520px}
-.tabs{display:flex;flex-wrap:wrap;gap:4px 32px}
-.tabgroup{display:flex;gap:4px;align-items:center}
-.tab{border:0;border-bottom:2px solid transparent;background:transparent;color:var(--muted);padding:0 10px;min-height:44px;font-size:15px;font-weight:500}
-.tab[aria-pressed="true"]{color:var(--fg);border-bottom-color:var(--fg);font-weight:600}
-.lhead,.row{display:grid;grid-template-columns:48px minmax(0,1.5fr) minmax(0,2fr) 140px 90px;gap:24px;align-items:center;padding:16px 12px}
-.lhead{padding:10px 12px;font-size:13px;color:var(--muted);border-bottom:1px solid var(--fg)}
-.row{border-bottom:1px solid var(--rule)}
-.row:hover{background:var(--hover)}
-.c-rank{font-size:22px;color:var(--muted);font-variant-numeric:tabular-nums}
-.c-name{font-size:17px;font-weight:600}
-.c-how{font-size:14px;line-height:1.4;color:var(--muted);margin-top:3px}
-.bar{height:10px;border-radius:2px}
-.c-dates{font-size:13px;line-height:1.5;color:var(--muted);font-variant-numeric:tabular-nums}
-.c-days{text-align:right;font-size:26px;letter-spacing:-0.01em;font-variant-numeric:tabular-nums}
-.legend{display:flex;gap:24px;font-size:13px;color:var(--muted);align-items:center}
-.legend i{display:inline-block;width:20px;height:10px;border-radius:2px;margin-right:8px}
-.method{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 100px;padding:24px 0 96px}
-.method>div{border-top:1px solid var(--rule);padding-top:28px}
-.method h2{font-size:32px;margin-bottom:14px}
-.method p{margin:0;font-size:16px;line-height:1.6;color:var(--muted)}
-footer{border-top:1px solid var(--rule);margin-top:auto}
-footer .credit{text-align:right;display:flex;flex-direction:column;gap:4px;margin-left:auto}
-footer .credit div:first-child{color:var(--fg)}
-footer .wrap{padding-top:24px;padding-bottom:24px;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:space-between}
-@media (max-width:900px){
- .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
- .method{grid-template-columns:minmax(0,1fr);gap:32px}
- .lhead{display:none}
- .row{grid-template-columns:40px minmax(0,1fr) auto;grid-template-areas:"rank leader days" ". bar bar" ". dates dates";gap:10px 16px}
- .c-rank{grid-area:rank}.c-leader{grid-area:leader}.c-days{grid-area:days}.c-bar{grid-area:bar}.c-dates{grid-area:dates}
-}
-@media (max-width:640px){
- .pad{padding-left:20px;padding-right:20px}
- .stats{grid-template-columns:minmax(0,1fr)}
- .row{padding:18px 0}
- .tagline{font-size:30px}.lede{font-size:19px}h2{font-size:32px}
- nav{margin-left:0}
- footer .credit{text-align:left;margin-left:0}
-}
-</style>
+<meta name="description" content="Every leader leaves. A few are back before the coffee gets cold. Or maybe the coffee has already gone bad?">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&amp;family=Noto+Serif+JP:wght@300;400;600&amp;family=Noto+Serif+TC:wght@300;400;600&amp;family=Noto+Sans+Cuneiform&amp;display=swap">
+<link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
-<header class="wrap pad">
-  <a href="#top" class="logo serif">Be Right Back</a>
-  <nav aria-label="Main">
-    <a href="#top" class="cur">Home</a>
-    <a href="#featuring">Featuring</a>
-    <a href="#ranking">Ranking</a>
-    <a href="#method">Method</a>
-    <button class="theme" id="theme" type="button" aria-label="Switch between black and white background">White background</button>
-  </nav>
-</header>
-
-<main id="top" class="wrap pad">
-  <section class="hero">
-    <h1 class="serif">Be Right Back</h1>
-    <div class="cols">
-      <p class="tagline serif">Every leader leaves. A few are back before the coffee gets cold.</p>
-      <p class="lede serif">One open ranking of how quickly leaders of well-known companies and governments regained the office they lost, measured in calendar days. The faster the return, the higher the rank.</p>
-    </div>
-  </section>
-
-  <section id="featuring" class="sect">
-    <div class="eyebrow">Featuring now · New to the ranking</div>
-    <div class="notice" id="notice"></div>
-    <div class="stats">
-      <div class="stat"><div class="k">Featured leader</div><div class="v name serif" id="f-name"></div><div class="s" id="f-org"></div></div>
-      <div class="stat"><div class="k">Days away</div><div class="v serif" id="f-days"></div><div class="s" id="f-range"></div></div>
-      <div class="stat"><div class="k">Rank</div><div class="v serif" id="f-rank"></div><div class="s">Fastest first</div></div>
-      <div class="stat"><div class="k">Median time away</div><div class="v serif" id="f-median"></div><div class="s" id="f-total"></div></div>
-    </div>
-  </section>
-
-  <section id="ranking" class="sect">
-    <div class="rank-top">
-      <div>
-        <h2 class="serif">Time to regain power</h2>
-        <div class="sub">Days between losing and regaining the top office. Lower is better.</div>
-      </div>
-      <div class="tabs">
-        <div class="tabgroup" data-group="cat">
-          <button class="tab" type="button" data-v="all" aria-pressed="true">All</button>
-          <button class="tab" type="button" data-v="company" aria-pressed="false">Company</button>
-          <button class="tab" type="button" data-v="gov" aria-pressed="false">Government</button>
-        </div>
-        <div class="tabgroup" data-group="sort">
-          <button class="tab" type="button" data-v="days" aria-pressed="true">Fastest</button>
-          <button class="tab" type="button" data-v="recent" aria-pressed="false">Recent</button>
-          <button class="tab" type="button" data-v="name" aria-pressed="false">Name</button>
-        </div>
-        <div class="tabgroup" data-group="scale">
-          <button class="tab" type="button" data-v="log" aria-pressed="true">Log</button>
-          <button class="tab" type="button" data-v="linear" aria-pressed="false">Linear</button>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="lhead"><div>Rank</div><div>Leader</div><div>Time away</div><div>Left / returned</div><div style="text-align:right">Days</div></div>
-      <div id="rows"></div>
-    </div>
-    <div class="legend"><span><i style="background:var(--fg)"></i>Company</span><span><i style="background:var(--bar2)"></i>Government</span></div>
-  </section>
-
-  <section id="method" class="method">
-    <div><h2 class="serif">What is measured</h2><p>Calendar days from the date a leader formally left their top office to the date they formally held that office, or its equivalent, again. Handover dates are those of the successor taking office and of the leader being sworn in, reinstated or named CEO again.</p></div>
-    <div><h2 class="serif">Limitations</h2><p>Dates are rounded to the day and can differ by a day between time zones. Steve Jobs left as Apple chairman and returned as interim CEO. Entries are a curated selection, not an exhaustive list.</p></div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap pad"><div>Be Right Back. Updated 24 Nov 2026.</div><div class="credit"><div>Idea and site by 広中依緒璃 (Hironaka Iori)</div><div>Independent project. Not affiliated with any person or organisation listed.</div></div></div>
-</footer>
-
-<script>
-(function () {
-  var M = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var fmt = function (a) { return a[2] + ' ' + M[a[1] - 1] + ' ' + a[0]; };
-  var raw = [
-    { id:'huang', name:'Jensen Huang', role:'President and CEO', org:'NVIDIA', cat:'company', out:[2026,11,12], back:[2026,11,23], how:'Board reversed course and reinstated him unanimously' },
-    { id:'altman', name:'Sam Altman', role:'CEO', org:'OpenAI', cat:'company', out:[2023,11,17], back:[2023,11,22], how:'Board reversed its decision after a staff revolt' },
-    { id:'trump', name:'Donald J. Trump', role:'President', org:'United States', cat:'gov', out:[2021,1,20], back:[2025,1,20], how:'Won the 2024 election' },
-    { id:'jobs', name:'Steve Jobs', role:'Interim CEO', org:'Apple', cat:'company', out:[1985,9,17], back:[1997,9,16], how:'Apple bought NeXT and the board turned to him' },
-    { id:'iger', name:'Bob Iger', role:'CEO', org:'The Walt Disney Company', cat:'company', out:[2020,2,25], back:[2022,11,20], how:'Board replaced his successor Bob Chapek' },
-    { id:'dell', name:'Michael Dell', role:'CEO', org:'Dell', cat:'company', out:[2004,7,16], back:[2007,1,31], how:'Returned after Kevin Rollins resigned' },
-    { id:'dorsey', name:'Jack Dorsey', role:'Interim CEO', org:'Twitter', cat:'company', out:[2008,10,16], back:[2015,7,1], how:'Named interim CEO after Dick Costolo stepped down' },
-    { id:'netanyahu', name:'Benjamin Netanyahu', role:'Prime Minister', org:'Israel', cat:'gov', out:[2021,6,13], back:[2022,12,29], how:'Right-wing bloc won the November 2022 election' },
-    { id:'lula', name:'Luiz Inácio Lula da Silva', role:'President', org:'Brazil', cat:'gov', out:[2011,1,1], back:[2023,1,1], how:'Won the 2022 runoff' },
-    { id:'churchill', name:'Winston Churchill', role:'Prime Minister', org:'United Kingdom', cat:'gov', out:[1945,7,26], back:[1951,10,26], how:'Conservatives won the 1951 general election' },
-    { id:'abe', name:'Shinzo Abe', role:'Prime Minister', org:'Japan', cat:'gov', out:[2007,9,26], back:[2012,12,26], how:'LDP won the 2012 general election' },
-    { id:'rudd', name:'Kevin Rudd', role:'Prime Minister', org:'Australia', cat:'gov', out:[2010,6,24], back:[2013,6,27], how:'Won a Labor Party leadership vote' },
-    { id:'cleveland', name:'Grover Cleveland', role:'President', org:'United States', cat:'gov', out:[1889,3,4], back:[1893,3,4], how:'Won the 1892 election' },
-    { id:'mahathir', name:'Mahathir Mohamad', role:'Prime Minister', org:'Malaysia', cat:'gov', out:[2003,10,31], back:[2018,5,10], how:'Opposition alliance won the 2018 election' },
-    { id:'mahama', name:'John Dramani Mahama', role:'President', org:'Ghana', cat:'gov', out:[2017,1,7], back:[2025,1,7], how:'Won the 2024 election' },
-    { id:'babis', name:'Andrej Babiš', role:'Prime Minister', org:'Czechia', cat:'gov', out:[2021,11,28], back:[2025,12,9], how:'ANO won the October 2025 parliamentary election' }
-  ];
-  var FEATURED = 'huang';
-  var day = function (a) { return Date.UTC(a[0], a[1] - 1, a[2]) / 86400000; };
-  var nf = function (n) { return n.toLocaleString('en-US'); };
-  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
-  var all = raw.map(function (p) {
-    p.days = Math.round(day(p.back) - day(p.out));
-    p.outText = fmt(p.out); p.backText = fmt(p.back); p.backKey = day(p.back);
-    return p;
-  });
-  var byDays = all.slice().sort(function (a, b) { return a.days - b.days; });
-  byDays.forEach(function (p, i) { p.rank = i + 1; });
-  var max = byDays[byDays.length - 1].days;
-  var h = byDays.length / 2;
-  var median = byDays.length % 2 ? byDays[Math.floor(h)].days : Math.round((byDays[h - 1].days + byDays[h].days) / 2);
-
-  var f = all.filter(function (p) { return p.id === FEATURED; })[0];
-  document.getElementById('notice').textContent = f.name + ', ' + f.role + ' of ' + f.org + ', left office on ' + f.outText + ' and returned on ' + f.backText + '. ' + f.how + '.';
-  document.getElementById('f-name').textContent = f.name;
-  document.getElementById('f-org').textContent = f.org;
-  document.getElementById('f-days').textContent = nf(f.days);
-  document.getElementById('f-range').textContent = f.outText + ' to ' + f.backText;
-  document.getElementById('f-rank').textContent = f.rank + ' of ' + all.length;
-  document.getElementById('f-median').textContent = nf(median);
-  document.getElementById('f-total').textContent = 'days across all ' + all.length + ' leaders';
-
-  var state = { cat: 'all', sort: 'days', scale: 'log' };
-  var rowsEl = document.getElementById('rows');
-  function render() {
-    var list = all.filter(function (p) { return state.cat === 'all' || p.cat === state.cat; });
-    if (state.sort === 'days') list.sort(function (a, b) { return a.days - b.days; });
-    if (state.sort === 'recent') list.sort(function (a, b) { return b.backKey - a.backKey; });
-    if (state.sort === 'name') list.sort(function (a, b) { return a.name.localeCompare(b.name); });
-    rowsEl.innerHTML = list.map(function (p) {
-      var frac = state.scale === 'log' ? Math.log(p.days + 1) / Math.log(max + 1) : p.days / max;
-      var w = Math.max(1, frac * 100).toFixed(2);
-      return '<div class="row"><div class="c-rank serif c-rank">' + p.rank + '</div>' +
-        '<div class="c-leader"><div class="c-name">' + esc(p.name) + '</div><div class="c-how">' + esc(p.org) + ' · ' + esc(p.how) + '</div></div>' +
-        '<div class="c-bar"><div class="bar" style="width:' + w + '%;background:' + (p.cat === 'company' ? 'var(--fg)' : 'var(--bar2)') + '"></div></div>' +
-        '<div class="c-dates">' + p.outText + ' to ' + p.backText + '</div>' +
-        '<div class="c-days serif">' + nf(p.days) + '</div></div>';
-    }).join('');
-  }
-  document.querySelectorAll('.tabgroup').forEach(function (g) {
-    g.addEventListener('click', function (e) {
-      var b = e.target.closest('.tab'); if (!b) return;
-      state[g.dataset.group] = b.dataset.v;
-      g.querySelectorAll('.tab').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      render();
-    });
-  });
-  var root = document.documentElement, tb = document.getElementById('theme');
-  function setTheme(t) {
-    root.setAttribute('data-theme', t);
-    tb.textContent = t === 'dark' ? 'White background' : 'Black background';
-    try { localStorage.setItem('brb-theme', t); } catch (e) {}
-  }
-  var saved = null; try { saved = localStorage.getItem('brb-theme'); } catch (e) {}
-  setTheme(saved === 'light' ? 'light' : 'dark');
-  tb.addEventListener('click', function () { setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); });
-  render();
-})();
-</script>
-</body>
-</html>
+<body data-page="home">
+<header><div class="wrap">
+<a class="logo" href="./" data-i18n="hero.title">Be Right Back</a>
+<nav><a href="./" aria-current="page" data-i18n="nav.home">Home</a><a href="./ranking/" data-i18n="nav.full">Full ranking</a></nav>
+<select id="lang"></select><button class="btn" id="theme" type="button"></button>
+</div></header>
+<main><div class="wrap">
+<h1 class="mark" data-i18n="hero.title">Be Right Back</h1>
+<p class="tag" data-i18n="hero.tagline"></p>
+<p class="lede" data-i18n="hero.lede"></p>
+<section id="feat"></section>
+<section>
+<h2 class="h2" data-i18n="top.title"></h2>
+<p class="sub" data-i18n="top.sub"></p>
+<ol class="list" id="top"></ol>
+<a class="more" href="ranking/" data-i18n="top.more"></a>
+</section>
+</div></main>
+<footer><div class="wrap"><span data-i18n="foot.updated"></span><span class="credit" data-i18n="foot.credit"></span></div></footer>
+<script src="assets/data.js"></script><script src="assets/i18n.js"></script><script src="assets/app.js"></script>
+</body></html>
